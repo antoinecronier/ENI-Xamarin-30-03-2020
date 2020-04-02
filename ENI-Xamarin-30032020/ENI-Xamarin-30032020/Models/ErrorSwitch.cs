@@ -38,7 +38,7 @@ namespace ENI_Xamarin_30032020.Models
             set 
             { 
                 errorText = value;
-                OnPropertyChanged("IsErrorVisible");
+                OnPropertyChanged("ErrorText");
             }
         }
 

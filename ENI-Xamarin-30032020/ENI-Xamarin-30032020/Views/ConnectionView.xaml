@@ -16,7 +16,7 @@
             <Switch IsToggled="{Binding SavingValues, Mode=TwoWay}"/>
             <Label Text="Mémoriser mes informations" TextColor="Gray" VerticalOptions="CenterAndExpand"/>
         </StackLayout>
-        <Label Text="{Binding ErrorSwitch.ErrorText, Mode=OneWay}" TextColor="{Binding ErrorSwitch.ErrorColor, Mode=OneWay}" IsVisible="{Binding ErrorSwitch.IsErrorVisible, Mode=OneWay}"/>
+        <Label Text="{Binding ErrorSwitch.ErrorText, Mode=TwoWay}" TextColor="{Binding ErrorSwitch.ErrorColor, Mode=TwoWay}" IsVisible="{Binding ErrorSwitch.IsErrorVisible, Mode=TwoWay}"/>
         <Button Text="SE CONNECTER" HorizontalOptions="FillAndExpand" Command="{Binding ConnectionClicked}"/>
     </StackLayout>
 </ContentView>

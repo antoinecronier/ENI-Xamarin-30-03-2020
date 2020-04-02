@@ -2,6 +2,7 @@
 using ENI_Xamarin_30032020.Models;
 using ENI_Xamarin_30032020.Services;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using Newtonsoft.Json;
 using System;
@@ -33,7 +34,7 @@ namespace ENI_Xamarin_30032020.ViewModels
         private Boolean savingValues = false;
 
         public User User { get; } = new User();
-        public ErrorSwitch ErrorSwitch { get; } = new ErrorSwitch() { ErrorColor = "red" };
+        public ErrorSwitch ErrorSwitch { get; } = new ErrorSwitch() { ErrorColor = "Red" };
 
         public Boolean SavingValues
         {
@@ -53,20 +54,7 @@ namespace ENI_Xamarin_30032020.ViewModels
                 return new RelayCommand(() =>
                 {
                     String errors = this.twitterService.Authenticate(User);
-                    if (String.IsNullOrEmpty(errors))
-                    {
-                        ManageAppPropertiesSave();
-
-                        this.ErrorSwitch.ErrorText = "";
-                        this.ErrorSwitch.IsErrorVisible = false;
-
-                        this.navigation.NavigateTo(Pages.TweetsPage.ToString());
-                    }
-                    else
-                    {
-                        this.ErrorSwitch.ErrorText = errors;
-                        this.ErrorSwitch.IsErrorVisible = true;
-                    }
+                    ManageErrors(errors);
                 });
             }
         }
@@ -75,7 +63,31 @@ namespace ENI_Xamarin_30032020.ViewModels
         {
             this.navigation = navigation;
             this.twitterService = twitterService;
+            Messenger.Default.Register<GenericMessage<String>>(this,ExternalErrors);
             ManageAppPropertiesLoad();
+        }
+
+        private void ExternalErrors(GenericMessage<string> error)
+        {
+            ManageErrors(error.Content);
+        }
+
+        private void ManageErrors(string errors)
+        {
+            if (String.IsNullOrEmpty(errors))
+            {
+                ManageAppPropertiesSave();
+
+                this.ErrorSwitch.ErrorText = "";
+                this.ErrorSwitch.IsErrorVisible = false;
+
+                this.navigation.NavigateTo(Pages.TweetsPage.ToString());
+            }
+            else
+            {
+                this.ErrorSwitch.ErrorText = errors;
+                this.ErrorSwitch.IsErrorVisible = true;
+            }
         }
 
         private async void ManageAppPropertiesLoad()

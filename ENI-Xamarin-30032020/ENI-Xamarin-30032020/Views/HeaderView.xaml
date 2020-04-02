@@ -9,7 +9,7 @@
              BindingContext="{Binding HeaderViewModel, Source={StaticResource Locator}}">
 
     <StackLayout Margin="10, 25" Orientation="Horizontal">
-        <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.pencil.png}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+        <ImageButton Command="{Binding CreateClicked}" Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.pencil.png}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
         <Label TextColor="White" Text="Accueil" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
         <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.search.png}"  VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>
     </StackLayout>

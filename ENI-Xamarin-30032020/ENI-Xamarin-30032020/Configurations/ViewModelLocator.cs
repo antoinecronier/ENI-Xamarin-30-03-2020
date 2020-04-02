@@ -15,7 +15,8 @@ namespace ENI_Xamarin_30032020.Configurations
         public enum Pages
         {
             MainPage,
-            TweetsPage
+            TweetsPage,
+            TweetCreatePage
         }
 
         public ViewModelLocator()
@@ -27,6 +28,7 @@ namespace ENI_Xamarin_30032020.Configurations
                 var navigationService = NavigationService.Instance;
                 navigationService.Configure(Pages.MainPage.ToString(), typeof(MainPage));
                 navigationService.Configure(Pages.TweetsPage.ToString(), typeof(TweetsPage));
+                navigationService.Configure(Pages.TweetCreatePage.ToString(), typeof(TweetCreatePage));
                 return navigationService;
             });
 
