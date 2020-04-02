@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
@@ -34,7 +35,7 @@ namespace ENI_Xamarin_30032020.ViewModels
         {
             if (msg.Content == 1)
             {
-                var tweets = this.twitterService.Tweets;
+                var tweets = this.twitterService.Tweets.OrderByDescending(x => x.CreationDate);
                 foreach (var item in tweets)
                 {
                     this.Tweets.Add(item);

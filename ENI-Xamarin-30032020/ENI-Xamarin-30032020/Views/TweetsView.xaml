@@ -13,26 +13,24 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <ScrollView>
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Image Source="https://picsum.photos/50/50/?random.jpg"/>
-                                <StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding User.Login, Mode=TwoWay}"/>
-                                        <Label Text="{Binding User.Pseudo, Mode=TwoWay}"/>
-                                        <Label Text="{Binding CreationDate, Mode=TwoWay}" TextColor="Gray" HorizontalOptions="End"/>
-                                    </StackLayout>
-                                    <Label Text="{Binding Content, Mode=TwoWay}" />
+                    <StackLayout VerticalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="https://picsum.photos/50/50/?random.jpg"/>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding User.Login, Mode=TwoWay}"/>
+                                    <Label Text="{Binding User.Pseudo, Mode=TwoWay}"/>
+                                    <Label Text="{Binding CreationDate, Mode=TwoWay}" TextColor="Gray" HorizontalOptions="End"/>
                                 </StackLayout>
-                            </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.reply.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                                <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.retweet.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                                <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.favorite.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Content, Mode=TwoWay}" />
                             </StackLayout>
                         </StackLayout>
-                    </ScrollView>
+                        <StackLayout Orientation="Horizontal">
+                            <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.reply.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.retweet.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <ImageButton Source="{utils:ImageFromResources ENI_Xamarin_30032020.Images.favorite.png}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

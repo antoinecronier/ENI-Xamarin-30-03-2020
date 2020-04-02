@@ -46,7 +46,6 @@ namespace ENI_Xamarin_30032020.ViewModels
             }
         }
 
-
         public RelayCommand ConnectionClicked
         {
             get

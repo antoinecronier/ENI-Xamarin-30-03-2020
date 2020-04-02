@@ -45,6 +45,7 @@ namespace ENI_Xamarin_30032020.Configurations
             SimpleIoc.Default.Register<HeaderViewViewModel>();
             SimpleIoc.Default.Register<OneTweetViewViewModel>();
             SimpleIoc.Default.Register<TweetsViewViewModel>();
+            SimpleIoc.Default.Register<TweetCreateViewViewModel>(); 
         }
 
 
@@ -97,6 +98,14 @@ namespace ENI_Xamarin_30032020.Configurations
             get
             {
                 return ServiceLocator.Current.GetInstance<TweetsViewViewModel>();
+            }
+        }
+
+        public TweetCreateViewViewModel TweetCreateViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TweetCreateViewViewModel>();
             }
         }
     }
