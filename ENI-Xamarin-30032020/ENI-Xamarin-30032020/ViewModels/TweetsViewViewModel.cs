@@ -26,15 +26,16 @@ namespace ENI_Xamarin_30032020.ViewModels
 
         public TweetsViewViewModel(ITwitterService twitterService)
         {
-            Messenger.Default.Register<GenericMessage<int>>(this, NotifyMe);
+            Messenger.Default.Register<GenericMessage<int>>(this, PageLoaded);
             this.twitterService = twitterService;
             this.tweets = new ObservableCollection<Tweet>();
         }
 
-        public void NotifyMe(GenericMessage<int> msg)
+        public void PageLoaded(GenericMessage<int> msg)
         {
             if (msg.Content == 1)
             {
+                this.Tweets.Clear();
                 var tweets = this.twitterService.Tweets.OrderByDescending(x => x.CreationDate);
                 foreach (var item in tweets)
                 {

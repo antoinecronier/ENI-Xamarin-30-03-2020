@@ -2,6 +2,7 @@
 using ENI_Xamarin_30032020.Entities;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
@@ -38,8 +39,18 @@ namespace ENI_Xamarin_30032020.ViewModels
 
         public TweetCreateViewViewModel(INavigationService navigation)
         {
+            Messenger.Default.Register<GenericMessage<int>>(this, PageLoaded);
             this.navigation = navigation;
             this.Tweet = new Tweet();
+        }
+
+        public void PageLoaded(GenericMessage<int> msg)
+        {
+            if (msg.Content == 1)
+            {
+                this.Tweet.Id = 0;
+                this.Tweet.Content = "";
+            }
         }
     }
 }
