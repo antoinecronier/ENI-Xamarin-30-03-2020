@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:utils="clr-namespace:Xamarin_Module9_TP06.Utils"
+             xmlns:views="clr-namespace:Xamarin_Module9_TP06.Views"
              x:Class="Xamarin_Module9_TP06.MainPage">
 
     <Grid>
@@ -15,25 +16,10 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
-        <ContentView BackgroundColor="#58B0F0" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-            <Grid Margin="10, 25">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <ImageButton Grid.Row="0" Grid.Column="0" Source="{utils:ImageFromResources Xamarin-Module8-TP05.Images.pencil.png}" VerticalOptions="Fill" HorizontalOptions="Fill"></ImageButton>
-                <Label Grid.Row="0" Grid.Column="1" TextColor="White" Text="Accueil" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
-                <ImageButton Grid.Row="0" Grid.Column="2" Source="{utils:ImageFromResources Xamarin-Module8-TP05.Images.search.png}"></ImageButton>
-            </Grid>
-        </ContentView>
+        <views:HeaderView BackgroundColor="#58B0F0" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
         <ContentView x:Name="connectionForm" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
             <StackLayout>
                 <Label Text="Connexion à twitter" TextColor="Gray" HorizontalOptions="CenterAndExpand"></Label>
@@ -47,55 +33,7 @@
                 <Button x:Name="btnConnexion" Text="SE CONNECTER" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         </ContentView>
-        <ContentView x:Name="tweetList" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
-            <ScrollView HorizontalOptions="FillAndExpand">
-                <ContentView HorizontalOptions="FillAndExpand">
-                    <Grid HorizontalOptions="FillAndExpand">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <ContentView  HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
-                            <Grid  HorizontalOptions="FillAndExpand">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="75"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="25"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Image Source="https://picsum.photos/50/50/?random.jpg" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-                                <Label Text="Antoine" Grid.Row="0" Grid.Column="1"></Label>
-                                <Label Text="@AntoineTweet" Grid.Row="0" Grid.Column="2"></Label>
-                                <Label Text="50s" TextColor="Gray" Grid.Row="0" Grid.Column="3"></Label>
-                                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod
-convallis dolor. Quisque ultricies porttitor nunc venenatis facilisis." Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"></Label>
-                            </Grid>
-                        </ContentView>
-                        <ImageButton Grid.Row="1" Grid.Column="0" Source="{utils:ImageFromResources Xamarin-Module8-TP05.Images.reply.png}"></ImageButton>
-                        <ImageButton Grid.Row="1" Grid.Column="1" Source="{utils:ImageFromResources Xamarin-Module8-TP05.Images.retweet.png}"></ImageButton>
-                        <ImageButton Grid.Row="1" Grid.Column="2" Source="{utils:ImageFromResources Xamarin-Module8-TP05.Images.favorite.png}"></ImageButton>
-                    </Grid>
-                </ContentView>
-            </ScrollView>
-        </ContentView>
-        <ContentView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
-            <StackLayout Orientation="Horizontal">
-                <Label TextColor="Gray" Text="Fil" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                <Label TextColor="Gray" Text="Notification" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                <Label TextColor="Gray" Text="Messages" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-                <Label TextColor="Gray" Text="Moi" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
-            </StackLayout>
-        </ContentView>
+        <views:FooterView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"/>
     </Grid>
 
 

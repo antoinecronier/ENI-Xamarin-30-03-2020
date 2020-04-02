@@ -23,7 +23,6 @@ namespace Xamarin_Module9_TP06
             InitializeComponent();
             this.btnConnexion.Clicked += BtnConnexion_Clicked;
             this.errorLabel.IsVisible = false;
-            this.tweetList.IsVisible = false;
             this.twitterService = new TwitterServiceImpl();
         }
 
@@ -54,9 +53,16 @@ namespace Xamarin_Module9_TP06
             {
                 this.errorLabel.Text = "";
                 this.errorLabel.IsVisible = false;
-                this.connectionForm.IsVisible = false;
-                this.tweetList.IsVisible = true;
+                Navigation.PushAsync(new TweetsPage());
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            this.identifiant.Text = "";
+            this.motDePasse.Text = "";
+            this.memorise.IsToggled = false;
+            base.OnAppearing();
         }
     }
 }
