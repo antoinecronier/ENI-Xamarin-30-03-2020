@@ -114,7 +114,7 @@ namespace ENI_Xamarin_30032020.ViewModels
             else
             {
                 await SecureStorage.SetAsync("have_saved_auth", Boolean.FalseString);
-                await SecureStorage.SetAsync("saved_user", null);
+                SecureStorage.Remove("saved_user");
             }
         }
     }
