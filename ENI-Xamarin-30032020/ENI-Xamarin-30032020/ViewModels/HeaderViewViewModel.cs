@@ -31,6 +31,18 @@ namespace ENI_Xamarin_30032020.ViewModels
             }
         }
 
+        public RelayCommand SearchClicked
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    Messenger.Default.Send<GenericMessage<int>, TweetsPageViewModel>(new GenericMessage<int>(1));
+                    Messenger.Default.Send<GenericMessage<int>, SearchViewViewModel>(new GenericMessage<int>(1));
+                });
+            }
+        }
+        
         public HeaderViewViewModel(INavigationService navigation)
         {
             this.navigation = navigation;

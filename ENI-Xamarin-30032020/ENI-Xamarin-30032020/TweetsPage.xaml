@@ -10,7 +10,14 @@
     <ContentPage.Content>
         <StackLayout>
             <views:HeaderView BackgroundColor="#58B0F0" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
-            <views:TweetsView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <!--<views:SearchView IsVisible="{Binding SearchVisibility, Mode=TwoWay}"/>-->
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <views:SearchView IsVisible="true"/>
+                    <views:TweetsView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </ScrollView>
+            
             <views:FooterView VerticalOptions="End"/>
         </StackLayout>
     </ContentPage.Content>
